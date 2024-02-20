@@ -1,0 +1,87 @@
+---
+const { data } = Astro.props;
+---
+
+<div class="accordion" x-data="{ activeAccordion: 0 }" class="space-y-2">
+  {data.map((item, index) => (
+    <div class="_item" :class={"{'+active' : activeAccordion === "+index+"}"}>
+      <div class="_title" x-on:click={"activeAccordion = activeAccordion === "+index+" ? false : " + index}>
+        <span>{item.question}</span>
+        <span class="_marker"></span>
+      </div>
+      <div class="_content">
+        <div class="_inner">
+          {item.answer}
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style lang="scss">
+  .accordion {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(500px, 80vw), 1fr));
+    align-items: start;
+    gap: 2.4rem;
+
+    ._item {
+      display: grid;
+      grid-template-columns: 100%;
+      grid-template-rows: auto minmax(0,0fr);
+      align-content: start;
+      border-width: 2px;
+      border-style: solid;
+      cursor: pointer;
+      transition: grid-template-rows .25s;
+
+      &:hover {
+        border-image: linear-gradient(#f94119, #f83c00, #f94119) 1;
+      }
+
+      &.\+active {
+        grid-template-rows: auto minmax(0,1fr);
+      }
+    }
+
+    ._title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.6rem;
+      user-select: none;
+      -webkit-user-select: none;
+      font-family: var(--font-family-fk);
+      color: var(--color-text-accent);
+      font-size: 24px;
+    }
+
+    .\+active ._title {
+      background: var(--color-button-primary-bg);
+      color: var(--color-text-white);
+      pointer-events: none;
+    }
+
+    ._content {
+      max-height: 100%;
+      overflow: clip;
+    }
+
+    ._inner {
+      padding: 1.6rem;
+    }
+
+    ._marker {
+      font-size: var(--fz-section-subheader);
+      text-align: center;
+    }
+
+    ._marker::before {
+      content: '+';
+    }
+
+    .\+active ._marker::before {
+      content: '';
+    }
+  }
+</style>

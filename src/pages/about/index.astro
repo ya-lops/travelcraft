@@ -1,0 +1,55 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+
+import Section from "@/components/Section.astro";
+import Card from "@/components/partial/Card.astro";
+import Grid from "@/components/Grid.astro";
+import Avatar from "@/components/partial/Avatar.astro";
+import Button from "@/components/partial/Button.astro";
+import Hero from "@/components/Hero.astro";
+import Split from "@/components/partial/Split.astro";
+import TestimonialsCard from "@/components/TestimonialsCard.astro";
+
+import testimonialsData from "@/data/testimonials";
+---
+
+<MainLayout>
+  <Hero subtitle="How about we make a deal?" title="About Us" imageSrc="/images/bg/thunder.jpg"/>
+
+  <Section
+    split
+    title="We Provide You Best Sightseeing Tours"
+    subtitle="What is your wish?"
+  >
+    <Fragment slot="end">
+      <Card variant="default">
+        <img src="/images/location/tooga.jpg" />
+      </Card>
+    </Fragment>
+    <p>
+      Discover the wonderful world of Azeroth with our travel company! Immerse yourself in an atmosphere of magic and adventure as you explore magnificent cities and picturesque landscapes.
+    </p>
+    <Button size="m" variant="outline" href="#specials">Let's Go</Button>
+  </Section>
+
+  <Section
+    centered
+    title="See What Our Clients Say About Us"
+    subtitle="Greetings, traveler"
+  >
+    <Grid hasBorderedCards>
+      {
+        testimonialsData.slice(0,3).map((testimonials) => (
+          <Card variant="default">
+            <TestimonialsCard
+              image={testimonials.image}
+              name={testimonials.name}
+              job={testimonials.job}
+              text={testimonials.text}
+            />
+          </Card>
+        ))
+      }
+    </Grid>
+  </Section>
+</MainLayout>

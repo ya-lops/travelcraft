@@ -1,0 +1,22 @@
+---
+
+---
+
+<div class="split">
+  <div>
+    <slot name="start"/>
+  </div>
+  <div>
+    <slot name="end"/>
+  </div>
+</div>
+
+<style lang="scss">
+  .split {
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+    align-items: center;
+    gap: 6.4rem;
+    width: 100%;
+  }
+</style>

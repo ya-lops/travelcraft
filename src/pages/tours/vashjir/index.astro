@@ -1,0 +1,66 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+
+import Hero from "@/components/Hero.astro";
+import List from "@/components/partial/List.astro";
+import ListItem from "@/components/partial/ListItem.astro";
+---
+
+<MainLayout>
+  <div class="container">
+    <img transition:name="vashjir" src="/images/tour/vashjir.webp" />
+  </div>
+
+  <div class="container">
+    <h2>History</h2>
+    <p>
+      Once a great Highborne city housing some of the most revered night elves
+      of Kalimdor, Vashj'ir was swallowed by the Great Sea in the Sundering and
+      thought to be lost forever. Queen Azshara, formerly a beloved leader of
+      the Highborne, escaped death in the depths of the sea when the Well of
+      Eternity imploded. Such salvation came at a great cost, as the queen and
+      many of her fellow Highborne were forever transformed into the monstrous
+      naga, doomed to wander the seas for thousands of years. Their existence
+      mostly remains a mystery to the peoples of modern Azeroth, though the
+      Earthen Ring has learned of Azshara's naga seizing Vashj'ir for an unknown
+      purpose as the cries of the elements echo across Azeroth from the Abyss.
+    </p>
+  </div>
+
+  <div class="container">
+    <h2>Map</h2>
+    <img src="/images/map/vashjir.webp"/>
+  </div>
+
+  <div class="container">
+    <h2>Zones</h2>
+    <List>
+      <ListItem
+        name="Kelp'thar Forest"
+        text="The forest features a vast array of aquatic life and plants. The most noticeable feature of the Kelp'thar Forest is found along the southern edge of the zone in what is known as the Lightless Reaches."
+      />
+      <ListItem
+        name="Shimmering Expanse"
+        text="It is the stronghold of the naga empire within the area. Besides the wide variety of plant and marine life there are also many mysterious wonders such as Nespirah. This zone is home to the ancient Ruins of Vashj'ir. Travellers will learn about the ruins, and what befell them, as well as interesting factoids about Queen Azshara and Lady Vashj's mother."
+      />
+      <ListItem
+        name="Abyssal Depths"
+        text="The Depths are home to the ancient god L'ghorek, who is connected to something immense beneath the seafloor. The Twilight's Hammer cult saps life energy from this gigantic being to create ascendants for the coming war against Neptulon for control of the seas. Also within the depths is the Abyssal Breach, the entrance into the Abyssal Maw itself, where more unknown horrors await."
+      />
+    </List>
+  </div>
+
+  <div class="container">
+    <h2>Sights</h2>
+    <List>
+      <ListItem
+        name="Vaesska"
+        text="The Vaesska is a sunken ship in Vashj'ir. Zithreenai naga were encountered there by champions of the Valarjar. It transported powerful armaments."
+      />
+      <ListItem
+        name="Edgar Fish 'N' Sea"
+        text="Edgar Fish 'N' Sea is the submarine of Bo Bobble and Max Megablast. They use it to dive around Vashj'ir in order to study the bioluminescent life living in the depths."
+      />
+    </List>
+  </div>
+</MainLayout>

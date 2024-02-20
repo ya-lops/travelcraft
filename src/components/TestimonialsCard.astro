@@ -1,0 +1,59 @@
+---
+import Avatar from './partial/Avatar.astro';
+
+interface Props {
+  image: string;
+  name: string;
+  job: string;
+  text: string;
+}
+
+const {image, name, job, text} = Astro.props;
+---
+
+<div class="service-card">
+  <div class="service-card__image">
+    <Avatar>
+      <img src={image} alt="">
+    </Avatar>
+  </div>
+  <div class="service-card__name">{name}</div>
+  <div class="service-card__job">{job}</div>
+  <div class="service-card__text">{text}</div>
+</div>
+
+<style lang="scss">
+  .service-card {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto minmax(0,1fr) minmax(0,2fr);
+    justify-items: center;
+    gap: 1rem;
+    height: 100%;
+
+    &__image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      color: var(--color-rarity-legendary);
+      font-size: 5rem;
+    }
+
+    &__name {
+      font-family: var(--font-family-fk);
+      color: var(--color-text-white);
+      font-size: 2rem;
+    }
+
+    &__job {
+      color: var(--color-text-accent);
+    }
+
+    &__text {
+      align-self: center;
+      text-align: center;
+      text-wrap: balance;
+    }
+  }
+</style>

@@ -1,0 +1,70 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  imageSrc: string;
+}
+
+const { title, subtitle, imageSrc } = Astro.props;
+
+const background = 'url('+imageSrc+')';
+---
+
+<section class="banner">
+  <div class="container">
+    <div class="banner__subtitle">{subtitle}</div>
+    <div class="banner__title">
+      <h2>{title}</h2>
+    </div>
+  </div>
+</section>
+
+<style lang="scss" define:vars={{ background }}>
+  .banner {
+    height: min(400px, 35dvh);
+    background-image: var(--background);
+    background-size: cover;
+    background-position: 50% 50%;
+    animation-name: scrollBg;
+    animation-timeline: view();
+    animation-fill-mode: both;
+
+    .container {
+      height: 100%;
+      display: grid;
+      align-content: center;
+    }
+
+    &__subtitle {
+      margin-bottom: 2px;
+      padding-bottom: 2px;
+      background: linear-gradient(90deg, #ffa800 0%, #ff8a00 119.41%),
+        rgba(255, 255, 255, 0.5);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 2rem;
+      text-transform: capitalize;
+    }
+
+    &__title {
+      font-family: var(--font-family-fq);
+      font-size: 4.5rem;
+      line-height: 1.1;
+      color: var(--color-text-white);
+      filter: drop-shadow(4px 2px 4px rgba(0, 0, 0, 0.4));
+      text-wrap: balance;
+      text-transform: capitalize;
+    }
+
+    @keyframes scrollBg {
+      from {
+        background-position: 50% 40%;
+      }
+
+      to {
+        background-position: 50% 60%;
+      }
+    }
+  }
+</style>

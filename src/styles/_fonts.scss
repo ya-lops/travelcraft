@@ -1,0 +1,57 @@
+@font-face {
+  font-family: "FrizQuadrata";
+  src: url("./fonts/FrizQuadrataStd-Bold.eot");
+  src:
+    local("Friz Quadrata Std Bold"),
+    local("FrizQuadrataStd-Bold"),
+    url("./fonts/FrizQuadrataStd-Bold.eot?#iefix") format("embedded-opentype"),
+    url("./fonts/FrizQuadrataStd-Bold.woff2") format("woff2"),
+    url("./fonts/FrizQuadrataStd-Bold.woff") format("woff"),
+    url("./fonts/FrizQuadrataStd-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FrizQuadrata";
+  src: url("./fonts/FrizQuadrataStd.eot");
+  src:
+    local("Friz Quadrata Std Medium"),
+    local("FrizQuadrataStd"),
+    url("./fonts/FrizQuadrataStd.eot?#iefix") format("embedded-opentype"),
+    url("./fonts/FrizQuadrataStd.woff2") format("woff2"),
+    url("./fonts/FrizQuadrataStd.woff") format("woff"),
+    url("./fonts/FrizQuadrataStd.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Folkard";
+  src: url("./fonts/Folkard.ttf");
+  src:
+    local("Folkard"),
+    url("./fonts/Folkard.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "LifeCraft";
+  src: url("./fonts/LifeCraft.ttf");
+  src:
+    local("Folkard"),
+    url("./fonts/LifeCraft.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-family-fq: 'FrizQuadrata';
+  --font-family-fk: 'Folkard';
+  --font-family-lc: 'LifeCraft';
+}

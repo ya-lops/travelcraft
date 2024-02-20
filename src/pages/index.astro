@@ -1,0 +1,148 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import Card from "@/components/partial/Card.astro";
+import Button from "@/components/partial/Button.astro";
+import Divider from "@/components/partial/Divider.astro";
+import Hero from "@/components/Hero.astro";
+import Section from "@/components/Section.astro";
+import Banner from "@/components/Banner.astro";
+import Faq from "@/components/Faq.astro";
+import Grid from "@/components/Grid.astro";
+import ServiceCard from "@/components/ServiceCard.astro";
+import TestimonialsCard from "@/components/TestimonialsCard.astro";
+import TourCard from "@/components/TrendTourCard.astro";
+import servicesData from "@/data/services";
+import testimonialsData from "@/data/testimonials";
+import toursData from "@/data/tours";
+---
+
+<MainLayout>
+  <Hero
+    subtitle="Discover Your"
+    title="Favorite Place"
+    imageSrc="/images/bg/hero.jpg"
+    text="Book a tour today and give yourself and your partner an unforgettable XP"
+  />
+
+  <Section
+    centered
+    title="We Offer Best Services"
+    subtitle="May I be of service?"
+  >
+    <Grid hasBorderedCards>
+      {
+        servicesData.map((service) => (
+          <Card variant="default">
+            <ServiceCard
+              image={service.image}
+              name={service.name}
+              text={service.text}
+            />
+          </Card>
+        ))
+      }
+    </Grid>
+  </Section>
+
+  <Section
+    split
+    title="Our dramatic Azeroth Destinations"
+    subtitle="Looking for something special?"
+  >
+    <Fragment slot="start">
+      <Card variant="default">
+        <img src="/images/location/booty-bay.jpg" />
+      </Card>
+    </Fragment>
+    <p>
+      Greetings, citizens of Azeroth! Do you want to go on an unforgettable
+      dramatic trip? Then take a look at our offer!
+    </p>
+    <p>
+      We invite you to visit the most beautiful and dramatic places in our
+      world. You can ride on the back of a griffin, watch the sunset on top of a
+      mountain, visit ancient ruins and much more.
+    </p>
+    <Button size="m" variant="outline" href="/specials">Let's Go</Button>
+  </Section>
+
+  <Divider />
+
+  <Section
+    centered
+    title="Our trending tours"
+    subtitle="I got the best deals anywhere"
+  >
+    <Grid hasTourCards>
+      {
+        toursData.slice(3,5).map((tour) => (
+          <Card variant="tour">
+            <TourCard
+              slug={tour.slug}
+              image={tour.image}
+              name={tour.name}
+              location={tour.location}
+              text={tour.text}
+              price={tour.price}
+              rating={tour.rating}
+              />
+          </Card>
+        ))
+      }
+    </Grid>
+  </Section>
+
+  <Banner
+    title="Next holiday Amazing"
+    subtitle="Let's make your"
+    imageSrc="/images/banner/banner1.png"
+  />
+
+  <Section split title="Best sightseeing tours" subtitle="I got what you need!">
+    <Fragment slot="end">
+      <Card variant="default">
+        <img src="/images/bg/thunder2.jpg" />
+      </Card>
+    </Fragment>
+    <p>
+      We offer you a wide selection of routes that will allow you to enjoy the
+      beauty of our planet from a bird's eye view.
+    </p>
+    <p>
+      You will be able to see the most beautiful zones, mountains, lakes and
+      much more.
+    </p>
+    <Button size="m" variant="outline" href="/tours">Alright, lets deal</Button>
+  </Section>
+
+  <Section
+    centered
+    title="See What Our Clients Say About Us"
+    subtitle="Greetings, traveler"
+  >
+    <Grid hasBorderedCards>
+      {
+        testimonialsData.slice(0,3).map((testimonials) => (
+          <Card variant="default">
+            <TestimonialsCard
+              image={testimonials.image}
+              name={testimonials.name}
+              job={testimonials.job}
+              text={testimonials.text}
+            />
+          </Card>
+        ))
+      }
+    </Grid>
+  </Section>
+
+  <Divider />
+
+  <Section
+    centered
+    title="frequently asked Questions"
+    subtitle="You've sure got a lot of questions"
+  >
+    <Faq />
+  </Section>
+</MainLayout>

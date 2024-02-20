@@ -1,0 +1,75 @@
+---
+import Logo from "./partial/Logo.astro";
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="_logo">
+        <Logo />
+      </div>
+      <div class="_links">
+        <a href="/tours">Tours</a>
+        <a href="/specials">Specials</a>
+        <a href="/about">About</a>
+      </div>
+    </div>
+    <div class="footer__copyrights">
+      2024 &copy; TravelCraft Co. | All images from google search.
+    </div>
+  </div>
+</footer>
+
+<style lang="scss">
+  .footer {
+    padding-block: 4rem;
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+    background: url(/images/bg/bg-pane-dirt-light.jpg);
+    color: var(--color-text-white);
+
+    &__inner {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      padding-block: 1rem;
+
+      @media (width < 460px) {
+        grid-template-columns: 100%;
+        justify-items: center;
+        gap: 2rem;
+      }
+    }
+
+    ._logo {
+      filter: grayscale(1);
+    }
+
+    ._links {
+      display: flex;
+      gap: 1rem;
+      font-size: 1rem;
+      flex-flow: column;
+
+      @media (width > 460px) {
+        justify-self: end;
+        align-self: end;
+        flex-flow: row;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &__copyrights {
+      border-top: 1px solid var(--color-border);
+      padding-block: 1rem;
+      font-size: 1rem;
+      color: var(--color-text-tretiary);
+    }
+  }
+</style>

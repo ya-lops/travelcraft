@@ -1,0 +1,28 @@
+---
+
+---
+
+<div class="currency">
+  <div class="currency__icon">
+    <img src="/images/icon/gold.webp" />
+  </div>
+  <div class="currency__value">
+    <slot />
+  </div>
+</div>
+
+<style lang="scss">
+  .currency {
+    display: inline-flex;
+    align-items: center;
+
+    &__icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    &__value {
+      color: var(--color-text-accent);
+    }
+  }
+</style>

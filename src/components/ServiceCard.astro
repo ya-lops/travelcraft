@@ -1,0 +1,52 @@
+---
+interface Props {
+  image: string;
+  name: string;
+  text: string;
+}
+
+const {image, name, text} = Astro.props;
+---
+
+<div class="service-card">
+  <div class="service-card__image">
+    <img src={image} />
+  </div>
+  <div class="service-card__name">{name}</div>
+  <div class="service-card__text">{text}</div>
+</div>
+
+<style lang="scss">
+  .service-card {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto minmax(0,1fr);
+    justify-items: center;
+    gap: 1rem;
+    height: 100%;
+
+    &__image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      // color: var(--color-rarity-legendary);
+      // font-size: 5rem;
+      border-radius: 50%;
+      overflow: clip;
+      outline: 1px solid var(--color-text-accent);
+      outline-offset: 3px;
+    }
+
+    &__name {
+      font-family: var(--font-family-fk);
+      color: var(--color-text-white);
+      font-size: 2rem;
+    }
+
+    &__text {
+      text-align: center;
+      text-wrap: balance;
+    }
+  }
+</style>

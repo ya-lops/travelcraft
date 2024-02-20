@@ -1,0 +1,62 @@
+---
+interface Props {
+  variant: "primary" | "outline";
+  size: "s" | "m";
+  href: string;
+}
+
+const { variant, href, size = "m" } = Astro.props;
+---
+
+<a class:list={["button", "+" + variant, "+" + size]} href={href}>
+  <span class="button__label">
+    <slot />
+  </span>
+</a>
+
+<style lang="scss">
+  .button {
+    display: inline-flex;
+    border-width: 2px;
+    border-style: solid;
+    font-weight: 400;
+    text-decoration: none;
+
+    &.\+primary {
+      background: linear-gradient(180deg, #aa2409, #761500 100%);
+      border-image: linear-gradient(#f94119, #f83c00, #f94119) 1;
+      color: var(--color-text-white);
+      font-weight: 600;
+      text-shadow: 2px 2px #000;
+
+      &:hover {
+        background: rgba(249, 65, 25, 0.7);
+      }
+    }
+
+    &.\+outline {
+      background: rgba(0, 0, 0, 0.3);
+      border-image: linear-gradient(#ffa800, #ff8a00) 1;
+      color: #f8b700;
+
+      &:hover {
+        background: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.1) 0%,
+            rgba(0, 0, 0, 0.1) 100%
+          ),
+          rgba(255, 168, 0, 0.2);
+      }
+    }
+
+    &.\+s {
+      border-width: 1px;
+      font-weight: 400;
+      padding: 10px 30px;
+    }
+
+    &.\+m {
+      padding: 20px 40px;
+    }
+  }
+</style>

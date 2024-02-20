@@ -1,0 +1,19 @@
+:where(h1, h2, h3, h4, h5, h6) {
+  font-weight: 400;
+}
+
+h1 {
+  font-size: var(--fz-header);
+}
+
+h2 {
+  font-family: var(--font-family-fq);
+  font-size: var(--fz-subheader, 60px);
+  line-height: 1.1;
+  color: var(--color-text-white);
+  filter: drop-shadow(4px 2px 4px rgba(0, 0, 0, 0.4));
+
+  @media (width < 768px) {
+    font-size: clamp(2rem, 8vw, 60px);
+  }
+}

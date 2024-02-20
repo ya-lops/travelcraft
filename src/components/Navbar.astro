@@ -1,0 +1,72 @@
+---
+import Logo from "@/components/partial/Logo.astro";
+import Button from "@/components/partial/Button.astro";
+---
+
+<div class="navbar" transition:persist transition:animate="none">
+  <div class="navbar__inner">
+    <Logo />
+    <nav class="nav navbar__nav">
+      <a href="/">Home</a>
+      <a href="/tours">Tours</a>
+      <a href="/specials">Specials</a>
+      <a href="/about">About</a>
+    </nav>
+    <Button size="s" variant="primary" href="/tours"> Get Tour </Button>
+  </div>
+</div>
+
+<style lang="scss">
+  .navbar {
+    --navbar-bg-color: hsla(5, 51%, 9%, 0.8);
+    --navbar-bg-color-no-blur: rgba(31, 53, 87, 0.95);
+    --navbar-menu-bg-color: rgba(34, 13, 11, 1);
+    --navbar-button-font-color: #ffffff;
+    --navbar-button-color-primary: #761500;
+    --navbar-button-color-primary-hover: #a01d00;
+    --navbar-button-color-secondary: #000;
+    --navbar-button-color-secondary-hover: #151515;
+    --navbar-badge-bg-color: #761500;
+    --navbar-badge-text-color: #ffffff;
+
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    z-index: 5;
+    width: calc(100% - 1rem - 1rem);
+    margin-inline: auto;
+    margin-bottom: 1rem;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    background: var(--navbar-bg-color);
+    backdrop-filter: blur(20px);
+
+    &__inner {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    &__nav {
+      justify-self: end;
+      padding-inline: 3rem;
+    }
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+
+    a {
+      color: var(--color-text-accent);
+      text-decoration: none;
+
+      &:hover {
+        filter: brightness(1.25);
+      }
+    }
+  }
+</style>

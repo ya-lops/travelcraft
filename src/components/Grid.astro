@@ -1,0 +1,36 @@
+---
+interface Props {
+  hasBorderedCards?: boolean;
+  hasTourCards?: boolean;
+}
+
+const { hasBorderedCards, hasTourCards } = Astro.props;
+---
+
+<div
+  class:list={[
+    "grid",
+    { "+hasBorderedCards": hasBorderedCards },
+    { "+hasTourCards": hasTourCards },
+  ]}
+>
+  <slot name="prepend" />
+  <slot />
+  <slot name="append" />
+</div>
+
+<style lang="scss">
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+
+    &.\+hasBorderedCards {
+      gap: 4rem;
+    }
+
+    &.\+hasTourCards {
+      gap: 6rem;
+    }
+  }
+</style>

@@ -1,0 +1,54 @@
+---
+
+---
+
+<div class="logo">
+  <div class="logo__icon">
+    <img src="/images/logo/map.jpg" />
+  </div>
+  <div class="logo__text">
+    <div>TravelCraft</div>
+  </div>
+</div>
+
+<style lang="scss">
+  .logo {
+    position: relative;
+
+    &__icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 100%;
+      translate: -50% -50%;
+      border-radius: 50%;
+      aspect-ratio: 1;
+      scale: 2;
+      filter: brightness(.5);
+      box-shadow: inset 0px 0px 20px 5px #000, 0px 0px 20px 10px #000;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+
+    &__text {
+      font-family: var(--font-family-lc);
+
+      div {
+        display: inline-block;
+        background: linear-gradient(45deg,#ffa800 0%,#d2c5b6 119.41%),rgba(255,255,255,0.75);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: var(--fz-section-subheader);
+        text-transform: capitalize;
+        transform-origin: left center;
+        scale: 1.75;
+      }
+    }
+  }
+</style>

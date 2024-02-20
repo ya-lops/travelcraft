@@ -1,0 +1,88 @@
+---
+interface Props {
+  subtitle: string;
+  title: string;
+  text?: string;
+  imageSrc: string;
+}
+
+const {subtitle, title, text, imageSrc, ...rest} = Astro.props;
+---
+
+<div class="hero" {...rest}>
+  <div class="container">
+    <div class="hero__inner">
+      <div class="hero__subtitle">{subtitle}</div>
+      <h1 class="hero__title">{title}</h1>
+      <p class="hero__text">
+        {text}
+      </p>
+    </div>
+  </div>
+  <aside class="hero__bg">
+    <img src={imageSrc} alt="" />
+  </aside>
+</div>
+
+<style lang="scss">
+  .hero {
+    position: relative;
+    height: clamp(500px, 75dvh, 700px);
+    padding-top: 120px;
+    padding-bottom: 120px;
+    isolation: isolate;
+
+    .container {
+      height: 100%;
+      display: grid;
+      align-content: center;
+    }
+
+    &__inner {
+      display: flex;
+      flex-flow: column;
+      height: 100%;
+    }
+
+    &__subtitle {
+      margin-bottom: 2px;
+      padding-bottom: 2px;
+      background: linear-gradient(90deg, #ffa800 0%, #ff8a00 119.41%),
+        rgba(255, 255, 255, 0.5);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: var(--fz-section-subheader);
+      text-transform: capitalize;
+    }
+
+    &__title {
+      font-family: var(--font-family-fq);
+      font-size: 4.5rem;
+      line-height: 1.1;
+      color: var(--color-text-white);
+      filter: drop-shadow(4px 2px 4px rgba(0, 0, 0, 0.4));
+      text-wrap: balance;
+      text-transform: capitalize;
+    }
+
+    &__text {
+      width: min(500px, 90vw);
+      text-shadow: 1px 1px #000;
+      text-wrap: balance;
+    }
+
+    &__bg {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.75);
+      }
+    }
+  }
+</style>

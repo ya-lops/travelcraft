@@ -1,0 +1,14 @@
+---
+import Accordion from "./partial/Accordion.astro";
+import faqData from "@/data/faq"
+---
+
+<div class="faq">
+  <Accordion data={faqData}/>
+</div>
+
+<style lang="scss">
+  .faq {
+    width: 100%;
+  }
+</style>

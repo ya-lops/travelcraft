@@ -1,0 +1,41 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import Section from "@/components/Section.astro";
+import Card from "@/components/partial/Card.astro";
+import Grid from "@/components/Grid.astro";
+import Hero from "@/components/Hero.astro";
+import TourCard from "@/components/TrendTourCard.astro";
+import toursData from "@/data/tours";
+---
+
+<MainLayout>
+  <Hero subtitle="Making a special purchase?" title="Our special Directions" imageSrc="/images/bg/thorn.jpeg" />
+
+  <Section title="Sorry but..." subtitle="See ya soon" >
+    There is no special tours yet.
+  </Section>
+
+  <Section
+    centered
+    title="Our trending tours"
+    subtitle="I got the best deals anywhere"
+  >
+    <Grid hasTourCards>
+      {
+        toursData.slice(3,5).map((tour) => (
+          <Card variant="tour">
+            <TourCard
+              slug={tour.slug}
+              image={tour.image}
+              name={tour.name}
+              location={tour.location}
+              text={tour.text}
+              price={tour.price}
+              rating={tour.rating}
+              />
+          </Card>
+        ))
+      }
+    </Grid>
+  </Section>
+</MainLayout>

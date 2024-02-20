@@ -1,0 +1,40 @@
+---
+interface Props {
+  name: string;
+  text: string;
+}
+
+const { name, text } = Astro.props;
+---
+
+<li class="list-item">
+  <div class="_icon">
+    <img src="/images/icon/list-bullet.webp" />
+  </div>
+  <div class="_name">{name}</div>
+  <div class="_text">{text}</div>
+</li>
+
+<style lang="scss">
+  .list-item {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas: "icon name" "icon text";
+    row-gap: 1rem;
+
+    ._icon {
+      grid-area: icon;
+    }
+
+    ._name {
+      grid-area: name;
+      color: var(--color-text-accent);
+      font-size: 2rem;
+    }
+
+    ._text {
+      grid-area: text;
+      color: var(--color-text-white);
+    }
+  }
+</style>

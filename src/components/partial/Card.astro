@@ -1,0 +1,55 @@
+---
+interface Props {
+  variant: "default" | "tour";
+}
+
+const { variant = "default" } = Astro.props;
+---
+
+<div class:list={["card", "+" + variant]}>
+  <slot />
+</div>
+
+<style lang="scss">
+  .card {
+    position: relative;
+    padding: 22px;
+
+    &:has(> img:only-child) {
+      padding: 0;
+    }
+
+    &:hover {
+      filter: brightness(1.25);
+    }
+
+    &.\+default {
+      &::after {
+        content: "";
+        position: absolute;
+        inset: -11px;
+        z-index: 1;
+        border: 22px solid transparent;
+        border-image: url("/images/borders/border-default.avif");
+        border-image-slice: 22 22 fill;
+        pointer-events: none;
+      }
+    }
+
+    &.\+tour {
+      &::after {
+        content: '';
+        position: absolute;
+        inset: -8px;
+        z-index: 1;
+        border-width: 16px;
+        border-style: solid;
+        border-image: url("/images/borders/border-tour.avif");
+        border-image-slice: 104 104 fill;
+        border-image-width: 41px;
+        border-image-outset: 22px;
+        pointer-events: none;
+      }
+    }
+  }
+</style>

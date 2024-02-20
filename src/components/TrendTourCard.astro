@@ -1,0 +1,114 @@
+---
+import Button from "./partial/Button.astro";
+import Currency from "./partial/Currency.astro";
+
+const { slug, image, name, text, location, price, rating } = Astro.props;
+---
+
+<div class="tour-card">
+  <div class="tour-card__image" transition:name={slug}>
+    <img src={image} alt="" />
+  </div>
+  <div class="_zone">
+    <div class="tour-card__name">{name}</div>
+    <div class="tour-card__location">{location}</div>
+  </div>
+  <div class="_info">
+    <div class="tour-card__rating">
+      <div class="_ratingIcon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="1em"
+          height="1em"
+          viewBox="0 0 36 36"
+          ><path
+            fill="#ffac33"
+            d="M27.287 34.627c-.404 0-.806-.124-1.152-.371L18 28.422l-8.135 5.834a1.97 1.97 0 0 1-2.312-.008a1.971 1.971 0 0 1-.721-2.194l3.034-9.792l-8.062-5.681a1.98 1.98 0 0 1-.708-2.203a1.978 1.978 0 0 1 1.866-1.363L12.947 13l3.179-9.549a1.976 1.976 0 0 1 3.749 0L23 13l10.036.015a1.975 1.975 0 0 1 1.159 3.566l-8.062 5.681l3.034 9.792a1.97 1.97 0 0 1-.72 2.194a1.957 1.957 0 0 1-1.16.379"
+          ></path></svg
+        >
+      </div>
+      <div class="_ratingText">{rating}</div>
+    </div>
+    <div class="tour-card__text">{text}</div>
+    <div class="tour-card__actions">
+      <div class="_price">
+        <span>Starts from</span> <Currency>{price}</Currency></span>
+      </div>
+      <Button size="m" href={"/tours/" + slug} variant="outline">Get Tour</Button>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  .tour-card {
+    --a: ;
+
+    ._zone {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__image {
+      aspect-ratio: 16/9;
+      overflow: clip;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__name {
+      color: var(--color-text-white);
+      font-family: var(--font-family-fk);
+      font-size: var(--fz-section-header);
+    }
+
+    &__location {
+      color: var(--color-text-accent);
+    }
+
+    ._info {
+      display: grid;
+      gap: 1rem;
+    }
+
+    &__text {
+      text-wrap: pretty;
+    }
+
+    &__rating {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+
+      ._ratingIcon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    &__actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      ._price {
+        display: flex;
+        align-items: center;
+        gap: 1ch;
+
+        > span {
+          color: var(--color-text-white);
+        }
+      }
+
+      ._priceValue {
+        color: var(--color-text-accent);
+      }
+    }
+  }
+</style>

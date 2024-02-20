@@ -1,0 +1,45 @@
+---
+import "@/styles/index.scss";
+import { ViewTransitions } from 'astro:transitions';
+
+import Navbar from "@/components/Navbar.astro";
+import Footer from "@/components/Footer.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <Navbar />
+    <slot />
+    <Footer />
+  </body>
+</html>
+
+<style lang="scss" is:global>
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-bg-surface-0);
+    background-image: url(/images/bg/overview.jpg);
+    background-size: cover;
+    color: var(--color-text-primary);
+    font-family: var(--font-family-fq);
+    font-size: var(--fz-body);
+    line-height: 1.25;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    
+  }
+
+  hr {
+    border-color: var(--color-line);
+  }
+</style>

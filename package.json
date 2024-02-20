@@ -1,0 +1,21 @@
+{
+  "name": "travelcraft",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@alpinejs/intersect": "^3.13.5",
+    "@astrojs/alpinejs": "^0.4.0",
+    "alpinejs": "^3.13.5",
+    "astro": "^4.3.7",
+    "prettier": "^3.2.5",
+    "prettier-plugin-astro": "^0.13.0",
+    "sass": "^1.70.0"
+  }
+}
