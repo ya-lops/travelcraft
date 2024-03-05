@@ -38,7 +38,7 @@ const { slug, image, name, text, location, price, rating, available = false } = 
         <Button size="m" href={"/tours/" + slug} variant="outline">Get Tour</Button>
       }
       {available == false && 
-        <Button disabled size="m" variant="outline">Not available</Button>
+        <Button disabled href={"/tours/" + slug} size="m" variant="outline">Not available</Button>
       }
     </div>
   </div>
