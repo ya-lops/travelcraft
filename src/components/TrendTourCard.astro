@@ -2,7 +2,7 @@
 import Button from "./partial/Button.astro";
 import Currency from "./partial/Currency.astro";
 
-const { slug, image, name, text, location, price, rating } = Astro.props;
+const { slug, image, name, text, location, price, rating, available = false } = Astro.props;
 ---
 
 <div class="tour-card">
@@ -34,19 +34,35 @@ const { slug, image, name, text, location, price, rating } = Astro.props;
       <div class="_price">
         <span>Starts from</span> <Currency>{price}</Currency></span>
       </div>
-      <Button size="m" href={"/tours/" + slug} variant="outline">Get Tour</Button>
+      {available == true && 
+        <Button size="m" href={"/tours/" + slug} variant="outline">Get Tour</Button>
+      }
+      {available == false && 
+        <Button disabled size="m" variant="outline">Not available</Button>
+      }
     </div>
   </div>
 </div>
 
 <style lang="scss">
   .tour-card {
-    --a: ;
+    container-name: card;
+    container-type: inline-size;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    width: 100%;
 
     ._zone {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      row-gap: .5rem;
+
+      @container card (width < 400px) {
+        flex-flow: column;
+      }
     }
 
     &__image {
@@ -61,6 +77,7 @@ const { slug, image, name, text, location, price, rating } = Astro.props;
     }
 
     &__name {
+      z-index: 1;
       color: var(--color-text-white);
       font-family: var(--font-family-fk);
       font-size: var(--fz-section-header);
@@ -71,12 +88,22 @@ const { slug, image, name, text, location, price, rating } = Astro.props;
     }
 
     ._info {
+      flex: 1;
       display: grid;
+      grid-template-rows: auto minmax(0,1fr) auto;
       gap: 1rem;
     }
 
     &__text {
       text-wrap: pretty;
+
+      @container card (width < 400px) {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
+        height: fit-content;
+        overflow: hidden;
+      }
     }
 
     &__rating {
@@ -95,6 +122,8 @@ const { slug, image, name, text, location, price, rating } = Astro.props;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
+      row-gap: 1rem;
 
       ._price {
         display: flex;

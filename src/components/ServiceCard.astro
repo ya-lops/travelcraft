@@ -1,16 +1,17 @@
 ---
 interface Props {
   image: string;
+  altText: string;
   name: string;
   text: string;
 }
 
-const {image, name, text} = Astro.props;
+const {image, name, text, altText} = Astro.props;
 ---
 
 <div class="service-card">
   <div class="service-card__image">
-    <img src={image} />
+    <img src={image} alt={altText}/>
   </div>
   <div class="service-card__name">{name}</div>
   <div class="service-card__text">{text}</div>

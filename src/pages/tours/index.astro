@@ -1,17 +1,87 @@
 ---
-import MainLayout from "@/layouts/MainLayout.astro";
-
-import Section from "@/components/Section.astro";
-import Card from "@/components/partial/Card.astro";
-import Grid from "@/components/Grid.astro";
-import Avatar from "@/components/partial/Avatar.astro";
-import Button from "@/components/partial/Button.astro";
-import Hero from "@/components/Hero.astro";
-import ServiceCard from "@/components/ServiceCard.astro";
-
 import servicesData from "@/data/services";
+import testimonialsData from "@/data/testimonials";
+import toursData from "@/data/tours";
+
+import MainLayout from "@/layouts/MainLayout.astro";
+import Card from "@/components/partial/Card.astro";
+import Button from "@/components/partial/Button.astro";
+import Divider from "@/components/partial/Divider.astro";
+import Hero from "@/components/Hero.astro";
+import Section from "@/components/Section.astro";
+import Banner from "@/components/Banner.astro";
+import Faq from "@/components/Faq.astro";
+import Grid from "@/components/Grid.astro";
+import ServiceCard from "@/components/ServiceCard.astro";
+import TestimonialsCard from "@/components/TestimonialsCard.astro";
+import TourCard from "@/components/TrendTourCard.astro";
 ---
 
 <MainLayout>
-  <Hero subtitle="Do not loiter" title="Travel with us" imageSrc="/images/bg/nagrand.jpg" />
+  <Hero
+    subtitle="Do not loiter"
+    title="Travel with us"
+    imageSrc="/images/bg/nagrand.jpg"
+  />
+
+  <Section
+    centered
+    title="Our tours"
+    subtitle="If you can make it here, you can make it anywhere."
+  >
+    <Grid hasTourCards>
+      {
+        toursData.map((tour) => (
+          <Card variant="tour">
+            <TourCard
+              slug={tour.slug}
+              image={tour.image}
+              name={tour.name}
+              location={tour.location}
+              text={tour.text}
+              price={tour.price}
+              rating={tour.rating}
+              available={tour.available}
+            />
+          </Card>
+        ))
+      }
+    </Grid>
+  </Section>
+
+  <Banner
+    title="Next holiday Amazing"
+    subtitle="Let's make your"
+    imageSrc="/images/banner/banner1.jpg"
+  />
+
+  <Section
+    centered
+    title="See What Our Clients Say About Us"
+    subtitle="Greetings, traveler"
+  >
+    <Grid hasBorderedCards>
+      {
+        testimonialsData.slice(3, 6).map((testimonials) => (
+          <Card variant="default">
+            <TestimonialsCard
+              image={testimonials.image}
+              name={testimonials.name}
+              job={testimonials.job}
+              text={testimonials.text}
+            />
+          </Card>
+        ))
+      }
+    </Grid>
+  </Section>
+
+  <Section
+    centered
+    title="frequently asked Questions"
+    subtitle="You've sure got a lot of questions"
+  >
+    <Faq />
+  </Section>
+  
 </MainLayout>

@@ -2,13 +2,14 @@
 interface Props {
   variant: "primary" | "outline";
   size: "s" | "m";
-  href: string;
+  href?: string;
+  disabled?: boolean;
 }
 
-const { variant, href, size = "m" } = Astro.props;
+const { variant, href, size = "m", disabled = false } = Astro.props;
 ---
 
-<a class:list={["button", "+" + variant, "+" + size]} href={href}>
+<a class:list={["button", "+" + variant, "+" + size, disabled ? '+disabled' : '' ]} href={href}>
   <span class="button__label">
     <slot />
   </span>
@@ -47,6 +48,11 @@ const { variant, href, size = "m" } = Astro.props;
           ),
           rgba(255, 168, 0, 0.2);
       }
+    }
+
+    &.\+disabled {
+      opacity: .5;
+      pointer-events: none;
     }
 
     &.\+s {

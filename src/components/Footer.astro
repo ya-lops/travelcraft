@@ -9,13 +9,15 @@ import Logo from "./partial/Logo.astro";
         <Logo />
       </div>
       <div class="_links">
+        <a href="/">Home</a>
         <a href="/tours">Tours</a>
         <a href="/specials">Specials</a>
         <a href="/about">About</a>
       </div>
     </div>
     <div class="footer__copyrights">
-      2024 &copy; TravelCraft Co. | All images from google search.
+      <div>2024 &copy; TravelCraft Co. | All images from google search. | Design by <a class="_link" href="https://discordapp.com/users/monikossa"
+        >monikossa</a></div>
     </div>
   </div>
 </footer>
@@ -54,14 +56,14 @@ import Logo from "./partial/Logo.astro";
         align-self: end;
         flex-flow: row;
       }
+    }
 
-      a {
-        color: inherit;
-        text-decoration: none;
+    a {
+      color: inherit;
+      text-decoration: none;
 
-        &:hover {
-          text-decoration: underline;
-        }
+      &:hover {
+        text-decoration: underline;
       }
     }
 

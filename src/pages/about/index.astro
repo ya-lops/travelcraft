@@ -1,20 +1,67 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
-
 import Section from "@/components/Section.astro";
 import Card from "@/components/partial/Card.astro";
 import Grid from "@/components/Grid.astro";
-import Avatar from "@/components/partial/Avatar.astro";
 import Button from "@/components/partial/Button.astro";
 import Hero from "@/components/Hero.astro";
-import Split from "@/components/partial/Split.astro";
 import TestimonialsCard from "@/components/TestimonialsCard.astro";
-
 import testimonialsData from "@/data/testimonials";
 ---
 
 <MainLayout>
-  <Hero subtitle="How about we make a deal?" title="About Us" imageSrc="/images/bg/thunder.jpg"/>
+  <Hero
+    subtitle="How about we make a deal?"
+    title="About Us"
+    imageSrc="/images/bg/thunder.jpg"
+  />
+
+  <Section
+    split
+    title="travel begins"
+    subtitle="I never cover up the things I'm proud of"
+  >
+    <Fragment slot="start">
+      <Card variant="default">
+        <img src="/images/characters/gallywix.jpg" alt="Gallywix portrait" />
+      </Card>
+    </Fragment>
+    <p>
+      Greetings, dear inhabitants of Azeroth! I am Jastor Gallywix, a renowned
+      businessman and owner of the largest travel agency in the world.
+    </p>
+
+    <p>
+      We offer you unique travel opportunities throughout Azeroth. Travel to
+      Stormwind, the capital of the Alliance, and enjoy the beauty of majestic
+      castles and picturesque parks. Or you can visit Orgrimmar, the capital of
+      the Horde, where exciting adventures and a unique culture await you.
+    </p>
+
+    <p>
+      We also invite you to visit the Elvin Forest, where you can enjoy the
+      beauty of nature and feel like a real hero.
+    </p>
+
+    <p>
+      Our services include everything you might need for a comfortable trip:
+      from accommodation in the best hotels to organizing excursions and
+      transfers.
+    </p>
+
+    <p>
+      We not guarantee you safety and comfort during your trip. You are not
+      unique, so we offer an individual approach to each of you.
+    </p>
+
+    <p>
+      Don't miss the opportunity to discover the wonderful world of Azeroth with
+      us! Contact us now and start your unforgettable journey!
+    </p>
+    <p>
+      <i>– Jastor Gallywix</i>
+    </p>
+  </Section>
 
   <Section
     split
@@ -23,11 +70,16 @@ import testimonialsData from "@/data/testimonials";
   >
     <Fragment slot="end">
       <Card variant="default">
-        <img src="/images/location/tooga.jpg" />
+        <img
+          src="/images/location/tooga.jpg"
+          alt="Funny character riding big turtle"
+        />
       </Card>
     </Fragment>
     <p>
-      Discover the wonderful world of Azeroth with our travel company! Immerse yourself in an atmosphere of magic and adventure as you explore magnificent cities and picturesque landscapes.
+      Discover the wonderful world of Azeroth with our travel company! Immerse
+      yourself in an atmosphere of magic and adventure as you explore
+      magnificent cities and picturesque landscapes.
     </p>
     <Button size="m" variant="outline" href="#specials">Let's Go</Button>
   </Section>
@@ -39,7 +91,7 @@ import testimonialsData from "@/data/testimonials";
   >
     <Grid hasBorderedCards>
       {
-        testimonialsData.slice(0,3).map((testimonials) => (
+        testimonialsData.slice(0, 3).map((testimonials) => (
           <Card variant="default">
             <TestimonialsCard
               image={testimonials.image}

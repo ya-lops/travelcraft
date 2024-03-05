@@ -9,10 +9,34 @@ import toursData from "@/data/tours";
 ---
 
 <MainLayout>
-  <Hero subtitle="Making a special purchase?" title="Our special Directions" imageSrc="/images/bg/thorn.jpeg" />
+  <Hero
+    subtitle="Making a special purchase?"
+    title="Our special Directions"
+    imageSrc="/images/bg/thorn.jpg"
+  />
 
-  <Section title="Sorry but..." subtitle="See ya soon" >
-    There is no special tours yet.
+  <Section
+    split
+    title="Under construction"
+    subtitle="I take body building to a whole new level"
+  >
+    <Fragment slot="end">
+      <Card variant="default">
+        <img
+          src="/images/characters/lazy-peon.webp"
+          alt="Thunder Bluff landscape "
+        />
+      </Card>
+    </Fragment>
+    <p>
+      Welcome traveler! We apologize that this section is under construction. We
+      are working to provide you with the most complete and useful tours
+      possible.
+    </p>
+    <p>
+      We value your time and try to make our pages as convenient and informative
+      as possible. We thank you for your patience and understanding.
+    </p>
   </Section>
 
   <Section
@@ -22,7 +46,7 @@ import toursData from "@/data/tours";
   >
     <Grid hasTourCards>
       {
-        toursData.slice(3,5).map((tour) => (
+        toursData.slice(3, 5).map((tour) => (
           <Card variant="tour">
             <TourCard
               slug={tour.slug}
@@ -32,7 +56,8 @@ import toursData from "@/data/tours";
               text={tour.text}
               price={tour.price}
               rating={tour.rating}
-              />
+              available={tour.available}
+            />
           </Card>
         ))
       }
